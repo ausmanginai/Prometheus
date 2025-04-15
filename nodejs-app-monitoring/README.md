@@ -12,3 +12,18 @@ To build the project:
 
     docker build -t repo-name/image-name:image-tag .
     docker push repo-name/image-name:image-tag
+
+
+To deploy the application on a Kubernetes cluster:
+
+    kubectl apply -f config-k8s.yaml 
+    
+To scrape the endpoint of your application, for Prometheus, deploy the ServiceMonitor:
+
+    kubectl apply -f nodejs-servicemonitor.yaml 
+    
+
+
+
+
+
