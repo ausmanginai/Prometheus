@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: monitoring-nodejs-app
+  labels:
+    release: monitoring
+    app: nodeapp
+spec:
+  endpoints:
+  - path: /metrics
+    port: service  # points to service called 'service' from config-k8s.yaml
+    targetPort: 3000
+  namespaceSelector: # as service monitor is in a different namespace to prometheus
+    matchNames:
+    - default
+  selector:
+    matchLabels:
+      app: nodeapp

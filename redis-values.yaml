@@ -1,0 +1,17 @@
+serviceMonitor:
+  # When set true then use a ServiceMonitor to configure scraping
+  enabled: true
+  labels:
+    release: monitoring # this label is must to register the exporter for monitoring
+
+redisAddress: redis://redis-cart:6379 # redis-cart is the service name for redis in my App
+
+
+# if your redis is password protected, you would need to provide credentials here
+# Additional Environment variables
+#env: {}
+# - name: REDIS_PASSWORD
+#   valueFrom:
+#     secretKeyRef:
+#       key: redis-password
+#       name: redis-config-0.0.2
